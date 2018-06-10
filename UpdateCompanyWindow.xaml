@@ -1,0 +1,21 @@
+﻿<Window x:Class="UnionFundsCalculator.UpdateCompanyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="更新公司信息" Height="600" Width="1150">
+    <Grid>
+        <DockPanel Margin="0,0,0,30">
+            <DataGrid AutoGenerateColumns="False" Name="dataGridCompany">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding CompanyID}" Width="200" Header="纳税人识别号"/>
+                    <DataGridTextColumn Binding="{Binding CompanyName}" Width="307" Header="纳税人名称"/>
+                    <DataGridTextColumn Binding="{Binding TaxAuthority}" Width="200" Header="所属税务机关"/>
+                    <DataGridTextColumn Binding="{Binding Union}" Width="200" Header="所属工会" SortDirection="Ascending"/>
+                    <DataGridTextColumn Binding="{Binding System}" Width="100" Header="所属系统"/>
+                    <DataGridTextColumn Binding="{Binding Industry}" Width="100" Header="产业非产业"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <Button Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="445,535,0,0" Click="Save_Button_Click"/>
+        <Button Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="575,535,0,0" Click="Cancel_Button_Click"/>
+    </Grid>
+</Window>

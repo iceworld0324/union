@@ -1,0 +1,9 @@
+﻿<Window x:Class="UnionFundsCalculator.DataDisplayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Height="300" Width="525">
+    <DockPanel>
+        <Button Content="复制以下表格到剪贴板" Width="140" Click="Copy_Button_Click" DockPanel.Dock="Top"/>
+        <DataGrid Name="dataGridDisplay" AutoGenerateColumns="True" AutoGeneratingColumn="DataGrid_Display_Generating_Column" ColumnWidth="*" Width="400" IsReadOnly="True" DockPanel.Dock="Top"/>
+    </DockPanel>
+</Window>

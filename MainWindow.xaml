@@ -1,0 +1,53 @@
+﻿<Window x:Class="UnionFundsCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="工会经费计算软件" Height="400" Width="525">
+    <Grid>
+        <TabControl Name="tabOverall" HorizontalAlignment="Left" VerticalAlignment="Top" Height="362" Width="509" SelectionChanged="Tab_SelectionChanged">
+            <TabItem Header="向数据库写入数据">
+                <Grid>
+                    <Button Content="自动更新公司信息" HorizontalAlignment="Left" Margin="338,72,0,0" VerticalAlignment="Top" Width="146" Click="Auto_Update_Company_Button_Click"/>
+                    <Button Content="显示数据库中数据" HorizontalAlignment="Left" Margin="340,172,0,0" VerticalAlignment="Top" Width="146" Click="Display_Data_Button_Click"/>
+                    <Button Content="手动更改公司信息" HorizontalAlignment="Left" Margin="340,132,0,0" VerticalAlignment="Top" Width="146" Click="Manual_Update_Company_Button_Click"/>
+                    <Button Content="添加该月经费信息" HorizontalAlignment="Left" Margin="338,32,0,0" VerticalAlignment="Top" Width="146" Click="Add_Funds_Button_Click"/>
+                    <TextBox Name="textBoxFunds" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="140,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+                    <Button Content="浏览" HorizontalAlignment="Left" Margin="272,32,0,0" VerticalAlignment="Top" Width="43" Click="Browse_Funds_Button_Click"/>
+                    <ComboBox Name="comboBoxInputYear" HorizontalAlignment="Left" Margin="15,32,0,0" VerticalAlignment="Top" Width="54"/>
+                    <ComboBox Name="comboBoxInputMonth" HorizontalAlignment="Left" Margin="69,32,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Separator Margin="0,113,0,216"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="从数据库读取数据">
+                <Grid>
+                    <ComboBox Name="comboBoxOutputYear" HorizontalAlignment="Left" Margin="37,66,0,0" VerticalAlignment="Top" Width="54"/>
+                    <ComboBox Name="comboBoxOutputMonth" HorizontalAlignment="Left" Margin="91,66,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Button Content="生成该月统计报表" HorizontalAlignment="Left" Margin="278,27,0,0" VerticalAlignment="Top" Width="145" Click="Generate_Report_Button_Click"/>
+                    <TextBox Name="textBoxPeriod"  HorizontalAlignment="Left" Height="23" Margin="298,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38"/>
+                    <ComboBox Name="comboBoxPeriod" HorizontalAlignment="Left" Margin="341,105,0,0" VerticalAlignment="Top" Width="77">
+                        <ComboBoxItem Content="月" IsSelected="True"/>
+                        <ComboBoxItem Content="年（同期）"/>
+                    </ComboBox>
+                    <Button Content="选择公司" HorizontalAlignment="Left" Margin="254,149,0,0" VerticalAlignment="Top" Width="95" Click="Choose_Company_Button_Click"/>
+                    <Button Content="生成比较结果" HorizontalAlignment="Left" Margin="354,149,0,0" VerticalAlignment="Top" Width="98" Click="Generate_Comparison_Button_Click"/>
+                    <Label Content="与过去" HorizontalAlignment="Left" Margin="252,102,0,0" VerticalAlignment="Top"/>
+                    <Label Content="比较" HorizontalAlignment="Left" Margin="420,102,0,0" VerticalAlignment="Top"/>
+                    <Separator Margin="196,76,3,250" Width="300"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="设置" Width="110">
+                <StackPanel>
+                    <DataGrid Name="dataGridSettings" AutoGenerateColumns="False" ColumnWidth="*" Width="300" Margin="0,20,0,0" CanUserAddRows="False" CanUserDeleteRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="名称" Binding="{Binding Name}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="数值" Binding="{Binding Value}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="保存" Width="100" Margin="0,20,0,0" Click="Save_Settings_Button_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <TextBox Name="textBoxMessage" IsReadOnly="True" HorizontalAlignment="Left" Height="88" Margin="100,263,0,0" TextWrapping="Wrap" Text="欢迎使用本程序！" VerticalAlignment="Top" Width="315"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <Label Content="系统消息：" HorizontalAlignment="Left" Margin="30,261,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
